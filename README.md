@@ -1,2 +1,2 @@
 # UberClone
-Clone Uber using MVVM Pattern
+Clone Uber system using MVVM Pattern (Study)
