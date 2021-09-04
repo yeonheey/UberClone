@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F1D76A826E210BF0054328B /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D76A726E210BF0054328B /* Extension+UIColor.swift */; };
+		9F1D76AA26E2164D0054328B /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D76A926E2164D0054328B /* SignUpController.swift */; };
+		9F1D76AC26E226520054328B /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1D76AB26E226520054328B /* AuthButton.swift */; };
 		9F699CF026D79B8B00F90CEF /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F699CEF26D79B8B00F90CEF /* LoginController.swift */; };
 		9F699CF426D7A9DE00F90CEF /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F699CF326D7A9DE00F90CEF /* Extension+UIView.swift */; };
 		9F699CF626D7A9F600F90CEF /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F699CF526D7A9F600F90CEF /* Extension+UITextField.swift */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F1D76A726E210BF0054328B /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		9F1D76A926E2164D0054328B /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		9F1D76AB26E226520054328B /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		9F699CEF26D79B8B00F90CEF /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		9F699CF326D7A9DE00F90CEF /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		9F699CF526D7A9F600F90CEF /* Extension+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITextField.swift"; sourceTree = "<group>"; };
@@ -80,6 +86,7 @@
 			children = (
 				9F699CF326D7A9DE00F90CEF /* Extension+UIView.swift */,
 				9F699CF526D7A9F600F90CEF /* Extension+UITextField.swift */,
+				9F1D76A726E210BF0054328B /* Extension+UIColor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -95,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				9F699CEF26D79B8B00F90CEF /* LoginController.swift */,
+				9F1D76A926E2164D0054328B /* SignUpController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -102,6 +110,7 @@
 		9FD07FCE26D640B40072A17A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9F1D76AB26E226520054328B /* AuthButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -184,10 +193,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FD07FB526D6405A0072A17A /* AppDelegate.swift in Sources */,
+				9F1D76AC26E226520054328B /* AuthButton.swift in Sources */,
 				9F699CF026D79B8B00F90CEF /* LoginController.swift in Sources */,
+				9F1D76AA26E2164D0054328B /* SignUpController.swift in Sources */,
 				9F699CF426D7A9DE00F90CEF /* Extension+UIView.swift in Sources */,
 				9F699CF626D7A9F600F90CEF /* Extension+UITextField.swift in Sources */,
 				9FD07FB726D6405A0072A17A /* SceneDelegate.swift in Sources */,
+				9F1D76A826E210BF0054328B /* Extension+UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

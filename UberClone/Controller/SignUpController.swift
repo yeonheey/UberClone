@@ -1,14 +1,13 @@
 //
-//  LoginController.swift
+//  SignUpController.swift
 //  UberClone
 //
-//  Created by 정연희 on 2021/08/26.
+//  Created by 정연희 on 2021/09/03.
 //
 
 import UIKit
 
-class LoginController: UIViewController {
-    
+class SignUpController: UIViewController {
     // MARK: - Properties
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -24,9 +23,22 @@ class LoginController: UIViewController {
         return view
     }()
     
+    private lazy var fullNameContainerView: UIView = {
+        let view = UIView().inputContainerView(image: #imageLiteral(resourceName: "ic_person_outline_white_2x"), textField: fullNameTextField)
+        view.anchor(height: 50)
+        return view
+    }()
+    
     private lazy var passwordContainerView: UIView = {
         let view = UIView().inputContainerView(image: #imageLiteral(resourceName: "ic_lock_outline_white_2x"), textField: passwordTextField)
         view.anchor(height: 50)
+        return view
+    }()
+    
+    private lazy var accountTypeContainerView: UIView = {
+        let view = UIView().inputContainerView(image: #imageLiteral(resourceName: "ic_account_box_white_2x"),
+                                               segmentedControl: accountTypeSegmentedControl)
+        view.anchor(height: 90)
         return view
     }()
     
@@ -35,19 +47,26 @@ class LoginController: UIViewController {
                                        isSecureTextEntry: false)
     }()
     
+    private let fullNameTextField: UITextField = {
+        return UITextField().textField(withPlaceholder: "Full Name",
+                                       isSecureTextEntry: false)
+    }()
+    
     private let passwordTextField: UITextField = {
         return UITextField().textField(withPlaceholder: "Password",
                                        isSecureTextEntry: true)
     }()
     
-    private let loginButton: AuthButton = {
-        let button = AuthButton(type: .system)
-        button.setTitle("Log In", for: .normal)
-        return button
+    private let accountTypeSegmentedControl: UISegmentedControl = {
+        let sc = UISegmentedControl(items: ["Rider", "Driver"])
+        sc.backgroundColor = .backgroundColor
+        sc.selectedSegmentTintColor = UIColor(white: 1, alpha: 0.87)
+        sc.selectedSegmentIndex = 0
+        return sc
     } ()
     
     // attributed button
-    let dontHaveAccountButton: UIButton = {
+    let haveAccountButton: UIButton = {
         let button = UIButton(type: .system)
         let attributedTitle = NSMutableAttributedString(
             string: "Don't have an account?  ",
@@ -64,62 +83,34 @@ class LoginController: UIViewController {
                                              NSAttributedString.Key.foregroundColor:
                                                 UIColor.mainBlueTint]))
         
-        button.addTarget(self,
+        /*button.addTarget(self,
                          action: #selector(handleShowSignUp),
-                         for: .touchUpInside)
+                         for: .touchUpInside) */
         button.setAttributedTitle(attributedTitle, for: .normal)
         return button
     }()
     
-    // MARK: - Lifecycle
-
+    // MARK: - LifeCycle
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
         configureUI()
     }
     
     // MARK: - Selectors
-    @objc func handleShowSignUp() {
-        let controller = SignUpController()
-        navigationController?.pushViewController(controller, animated: true)
-    }
     
     // MARK: - Helper functions
     func configureUI() {
-        configureNavigationBar()
-        
         view.backgroundColor = .backgroundColor
         
         view.addSubview(titleLabel)
         titleLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor)
         titleLabel.centerX(inView: view)
         
-        /*
-        view.addSubview(emailContainerView)
-        emailContainerView.anchor(top: titleLabel.bottomAnchor,
-                                  left: view.leftAnchor,
-                                  right: view.rightAnchor,
-                                  paddingTop: 40,
-                                  paddingLeft: 16,
-                                  paddingRight: 16,
-                                  height: 50)
-        
-        view.addSubview(passwordContainerView)
-        passwordContainerView.anchor(top: emailContainerView.bottomAnchor,
-                                  left: view.leftAnchor,
-                                  right: view.rightAnchor,
-                                  paddingTop: 16,
-                                  paddingLeft: 16,
-                                  paddingRight: 16,
-                                  height: 50)
-        */
-        
         let stackView = UIStackView(arrangedSubviews: [emailContainerView,
+                                                       fullNameContainerView,
                                                        passwordContainerView,
-                                                       loginButton])
+                                                       accountTypeContainerView])
         stackView.axis = .vertical
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fillProportionally
         stackView.spacing = 24
         
         view.addSubview(stackView)
@@ -130,14 +121,8 @@ class LoginController: UIViewController {
                          paddingLeft: 16,
                          paddingRight: 16)
         
-        view.addSubview(dontHaveAccountButton)
-        dontHaveAccountButton.centerX(inView: view)
-        dontHaveAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, paddingBottom: 32)
-    }
-    
-    func configureNavigationBar() {
-        self.navigationController?.navigationBar.isHidden = true
-        self.navigationController?.navigationBar.barStyle = .black
-        // preferredStatusBarStyle = .lightContentMode
+        view.addSubview(haveAccountButton)
+        haveAccountButton.centerX(inView: view)
+        haveAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, paddingBottom: 32)
     }
 }
